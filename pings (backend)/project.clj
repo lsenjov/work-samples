@@ -9,9 +9,13 @@
   :ring {:handler tanda.handler/app}
   :profiles
   {:dev {:dependencies [
-                        ;; Compojure deps
+                        ;; Compojure Deps
                         [javax.servlet/servlet-api "2.5"]
                         [ring/ring-mock "0.3.0"]
+
+                        ;; Database Deps
+                        [mysql/mysql-connector-java "5.1.38"]
+                        [org.clojure/java.jdbc "0.4.2"]
                         
                         ;; Logging Deps
                         [org.clojure/tools.logging "0.3.1"]
@@ -20,5 +24,4 @@
                                                            javax.jms/jms
                                                            com.sun.jmdk/jmxtools
                                                            com.sun.jmx/jmxri]]
-                        [com.taoensso/timbre "4.3.1"]
                         ]}})

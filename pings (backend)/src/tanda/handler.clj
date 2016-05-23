@@ -2,7 +2,7 @@
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
-            [taoensso.timbre :as log]
+            [clojure.tools.logging :as log]
 
             [tanda.translators :as tr]
             ))
@@ -18,10 +18,10 @@
        "Not implemented") ; TODO
 
   ;; Actual Logging of Pings
-  (POST "/user/:device/:epoch"
+  (POST "/:device/:epoch"
         {{device :device epoch :epoch} :params}
         (tr/trans-ping device epoch)) ; TODO
-  (route/not-found "Not Found"))
+  (route/not-found "Not Found - Bad endpoint"))
 
 (def app
   (wrap-defaults app-routes api-defaults))
@@ -29,6 +29,9 @@
 (defn init
   "Initialises anything required for startup"
   []
+  (log/trace "Initialisation start")
   ;; TODO Database setup
   nil
+
+  (log/info "Initialisation complete")
   )

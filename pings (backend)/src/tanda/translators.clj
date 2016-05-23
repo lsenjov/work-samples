@@ -1,8 +1,9 @@
 (ns tanda.translators
   (:require
-    [taoensso.timbre :as log]
+    [clojure.tools.logging :as log]
 
     [tanda.persist :as persist]
+    [tanda.helpers :as h]
     )
   (:gen-class)
   )
@@ -11,10 +12,13 @@
   "Takes and stores a device-epoch record"
   [device epoch]
   (log/trace "trans-ping:" device epoch)
-  (let [status (persist/ping-insert device epoch)]
-    (if (:success status)
-      "Success"
-      "Failed"
+  (if-let [t (h/parse-int epoch)]
+    (let [status (persist/ping-insert device epoch)]
+      (if (:success status)
+        "Success"
+        (str "Failed: " (:message status))
+        )
       )
+    "Invalid epoch format, must be an integer" ;; Failed to parse epoch
     )
   )
