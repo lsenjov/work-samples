@@ -1,0 +1,56 @@
+2016-05-23 16:15:10 DEBUG log:162 - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.eclipse.jetty.util.log) via org.eclipse.jetty.util.log.Slf4jLog
+2016-05-23 16:15:34 DEBUG log:162 - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.eclipse.jetty.util.log) via org.eclipse.jetty.util.log.Slf4jLog
+2016-05-23 16:15:36 DEBUG Container:206 - Container org.eclipse.jetty.server.Server@29ee8174 + SelectChannelConnector@0.0.0.0:3000 as connector
+2016-05-23 16:15:36 DEBUG Container:206 - Container org.eclipse.jetty.server.Server@29ee8174 + ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a@f4d391c as handler
+2016-05-23 16:15:36 DEBUG Container:206 - Container org.eclipse.jetty.server.Server@29ee8174 + qtp958291962{8<=0<=0/50,-1} as threadpool
+2016-05-23 16:15:36 DEBUG AbstractLifeCycle:179 - starting org.eclipse.jetty.server.Server@29ee8174
+2016-05-23 16:15:36 INFO  Server:271 - jetty-7.6.13.v20130916
+2016-05-23 16:15:36 DEBUG AbstractLifeCycle:179 - starting ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a@f4d391c
+2016-05-23 16:15:36 DEBUG AbstractHandler:57 - starting ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a@f4d391c
+2016-05-23 16:15:36 DEBUG AbstractLifeCycle:172 - STARTED ring.adapter.jetty.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a@f4d391c
+2016-05-23 16:15:36 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.Server@29ee8174
+2016-05-23 16:15:36 DEBUG AbstractLifeCycle:179 - starting qtp958291962{8<=0<=0/50,-1}
+2016-05-23 16:15:36 DEBUG AbstractLifeCycle:172 - STARTED qtp958291962{8<=7<=8/50,0}
+2016-05-23 16:15:36 DEBUG AbstractLifeCycle:179 - starting SelectChannelConnector@0.0.0.0:3000
+2016-05-23 16:15:36 DEBUG AbstractLifeCycle:179 - starting null/null
+2016-05-23 16:15:36 DEBUG AbstractLifeCycle:172 - STARTED PooledBuffers [0/1024@6144,0/1024@16384,0/1024@-]/PooledBuffers [0/1024@6144,0/1024@32768,0/1024@-]
+2016-05-23 16:15:36 DEBUG AbstractLifeCycle:179 - starting org.eclipse.jetty.server.nio.SelectChannelConnector$ConnectorSelectorManager@6a3e633a
+2016-05-23 16:15:36 DEBUG AbstractLifeCycle:172 - STARTED org.eclipse.jetty.server.nio.SelectChannelConnector$ConnectorSelectorManager@6a3e633a
+2016-05-23 16:15:36 DEBUG nio:285 - Starting Thread[qtp958291962-10 Selector0,5,main] on org.eclipse.jetty.io.nio.SelectorManager$1@4a8e572f
+2016-05-23 16:15:36 INFO  AbstractConnector:338 - Started SelectChannelConnector@0.0.0.0:3000
+2016-05-23 16:15:36 DEBUG AbstractLifeCycle:172 - STARTED SelectChannelConnector@0.0.0.0:3000
+2016-05-23 16:15:36 DEBUG AbstractLifeCycle:172 - STARTED org.eclipse.jetty.server.Server@29ee8174
+2016-05-23 16:15:37 DEBUG nio:842 - created SCEP@295c3e4b{l(/0:0:0:0:0:0:0:1:37550)<->r(/0:0:0:0:0:0:0:1:3000),s=0,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=0}-{AsyncHttpConnection@7e3a5af,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=0},r=0}
+2016-05-23 16:15:37 DEBUG HttpParser:281 - filled 359/359
+2016-05-23 16:15:37 DEBUG Server:364 - REQUEST / on AsyncHttpConnection@7e3a5af,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=14,c=0},r=1
+2016-05-23 16:15:37 DEBUG Server:366 - RESPONSE /  200 handled=true
+2016-05-23 16:15:37 DEBUG AsyncHttpConnection:211 - Enabled read interest SCEP@295c3e4b{l(/0:0:0:0:0:0:0:1:37550)<->r(/0:0:0:0:0:0:0:1:3000),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=0r}-{AsyncHttpConnection@7e3a5af,g=HttpGenerator{s=4,h=0,b=0,c=-1},p=HttpParser{s=0,l=14,c=0},r=1}
+2016-05-23 16:15:37 DEBUG HttpParser:281 - filled 0/0
+2016-05-23 16:15:37 DEBUG nio:842 - created SCEP@5c3103c2{l(/0:0:0:0:0:0:0:1:37552)<->r(/0:0:0:0:0:0:0:1:3000),s=0,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=0}-{AsyncHttpConnection@446e44b3,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=0},r=0}
+2016-05-23 16:15:37 DEBUG HttpParser:281 - filled 284/284
+2016-05-23 16:15:37 DEBUG Server:364 - REQUEST / on AsyncHttpConnection@446e44b3,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=10,c=0},r=1
+2016-05-23 16:15:37 DEBUG Server:366 - RESPONSE /  200 handled=true
+2016-05-23 16:15:37 DEBUG AsyncHttpConnection:211 - Enabled read interest SCEP@5c3103c2{l(/0:0:0:0:0:0:0:1:37552)<->r(/0:0:0:0:0:0:0:1:3000),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=0}-{AsyncHttpConnection@446e44b3,g=HttpGenerator{s=4,h=0,b=0,c=-1},p=HttpParser{s=0,l=10,c=0},r=1}
+2016-05-23 16:15:37 DEBUG HttpParser:281 - filled 0/0
+2016-05-23 16:15:38 DEBUG HttpParser:281 - filled 265/265
+2016-05-23 16:15:38 DEBUG Server:364 - REQUEST /favicon.ico on AsyncHttpConnection@446e44b3,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=10,c=0},r=2
+2016-05-23 16:15:38 DEBUG Server:366 - RESPONSE /favicon.ico  404 handled=true
+2016-05-23 16:15:38 DEBUG AsyncHttpConnection:211 - Enabled read interest SCEP@5c3103c2{l(/0:0:0:0:0:0:0:1:37552)<->r(/0:0:0:0:0:0:0:1:3000),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@446e44b3,g=HttpGenerator{s=4,h=0,b=0,c=-1},p=HttpParser{s=0,l=10,c=0},r=2}
+2016-05-23 16:15:38 DEBUG HttpParser:281 - filled 0/0
+2016-05-23 16:15:38 DEBUG HttpParser:281 - filled 295/295
+2016-05-23 16:15:38 DEBUG Server:364 - REQUEST /favicon.ico on AsyncHttpConnection@446e44b3,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=10,c=0},r=3
+2016-05-23 16:15:38 DEBUG Server:366 - RESPONSE /favicon.ico  404 handled=true
+2016-05-23 16:15:38 DEBUG AsyncHttpConnection:211 - Enabled read interest SCEP@5c3103c2{l(/0:0:0:0:0:0:0:1:37552)<->r(/0:0:0:0:0:0:0:1:3000),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@446e44b3,g=HttpGenerator{s=4,h=0,b=0,c=-1},p=HttpParser{s=0,l=10,c=0},r=3}
+2016-05-23 16:15:38 DEBUG HttpParser:281 - filled 0/0
+2016-05-23 16:16:17 DEBUG ChannelEndPoint:118 - ishut SCEP@295c3e4b{l(/0:0:0:0:0:0:0:1:37550)<->r(/0:0:0:0:0:0:0:1:3000),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@7e3a5af,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=-3},r=1}
+2016-05-23 16:16:17 DEBUG HttpParser:281 - filled -1/0
+2016-05-23 16:16:17 DEBUG AsyncHttpConnection:145 - Disabled read interest while writing response SCEP@295c3e4b{l(/0:0:0:0:0:0:0:1:37550)<->r(/0:0:0:0:0:0:0:1:3000),s=1,open=true,ishut=true,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@7e3a5af,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=-3},r=1}
+2016-05-23 16:16:17 DEBUG ChannelEndPoint:209 - close SCEP@295c3e4b{l(/0:0:0:0:0:0:0:1:37550)<->r(/0:0:0:0:0:0:0:1:3000),s=1,open=true,ishut=true,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@7e3a5af,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=-3},r=1}
+2016-05-23 16:16:17 DEBUG nio:851 - destroyEndPoint SCEP@295c3e4b{l(null)<->r(0.0.0.0/0.0.0.0:3000),s=0,open=false,ishut=true,oshut=true,rb=false,wb=false,w=true,i=1!}-{AsyncHttpConnection@7e3a5af,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=-3},r=1}
+2016-05-23 16:16:17 DEBUG AbstractHttpConnection:700 - closed AsyncHttpConnection@7e3a5af,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=-3},r=1
+2016-05-23 16:17:33 DEBUG ChannelEndPoint:118 - ishut SCEP@5c3103c2{l(/0:0:0:0:0:0:0:1:37552)<->r(/0:0:0:0:0:0:0:1:3000),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@446e44b3,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=-3},r=3}
+2016-05-23 16:17:33 DEBUG HttpParser:281 - filled -1/0
+2016-05-23 16:17:33 DEBUG AsyncHttpConnection:145 - Disabled read interest while writing response SCEP@5c3103c2{l(/0:0:0:0:0:0:0:1:37552)<->r(/0:0:0:0:0:0:0:1:3000),s=1,open=true,ishut=true,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@446e44b3,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=-3},r=3}
+2016-05-23 16:17:33 DEBUG ChannelEndPoint:209 - close SCEP@5c3103c2{l(/0:0:0:0:0:0:0:1:37552)<->r(/0:0:0:0:0:0:0:1:3000),s=1,open=true,ishut=true,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@446e44b3,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=-3},r=3}
+2016-05-23 16:17:33 DEBUG nio:851 - destroyEndPoint SCEP@5c3103c2{l(null)<->r(0.0.0.0/0.0.0.0:3000),s=0,open=false,ishut=true,oshut=true,rb=false,wb=false,w=true,i=1!}-{AsyncHttpConnection@446e44b3,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=-3},r=3}
+2016-05-23 16:17:33 DEBUG AbstractHttpConnection:700 - closed AsyncHttpConnection@446e44b3,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=-3},r=3
