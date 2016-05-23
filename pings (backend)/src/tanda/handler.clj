@@ -10,28 +10,24 @@
 (defroutes app-routes
   (GET "/" [] "Hello World")
 
+  (GET "/devices"
+       []
+       (tr/trans-devices))
   (GET "/:deviceId/:date"
        {{device :deviceId date :date} :params}
-       "Not implemented") ; TODO
+       (tr/trans-get-pings device date))
   (GET "/:deviceId/:from/:to"
-       {{device :deviceId dateFrom :from :dateTo :to} :params}
-       "Not implemented") ; TODO
+       {{device :deviceId dateFrom :from dateTo :to} :params}
+       (tr/trans-get-pings device dateFrom dateTo))
 
   ;; Actual Logging of Pings
   (POST "/:device/:epoch"
         {{device :device epoch :epoch} :params}
-        (tr/trans-ping device epoch)) ; TODO
+        (tr/trans-ping device epoch))
+  (POST "/clear_data"
+        []
+        (tr/trans-clear))
   (route/not-found "Not Found - Bad endpoint"))
 
 (def app
   (wrap-defaults app-routes api-defaults))
-
-(defn init
-  "Initialises anything required for startup"
-  []
-  (log/trace "Initialisation start")
-  ;; TODO Database setup
-  nil
-
-  (log/info "Initialisation complete")
-  )

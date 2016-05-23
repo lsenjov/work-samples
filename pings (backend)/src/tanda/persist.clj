@@ -29,20 +29,26 @@
 (defn get-by-device
   "Gets all timestamps from the device"
   [device]
-  (map :epoch (query "SELECT pings.epoch FROM pings WHERE device = ?;" device)))
+  (mapv :epoch (query "SELECT pings.epoch FROM pings WHERE device = ?;" device)))
 
 (defn get-by-time
   "Gets all timestamps from a device between start inclusive and end exclusive"
   [device startEpoch endEpoch]
-  (query "SELECT pings.epoch FROM pings
-         WHERE device = ?
-         AND pings.epoch >= ?
-         AND pings.epoch < ?;"
-         device
-         startEpoch
-         endEpoch))
+  (mapv :epoch
+        (query "SELECT pings.epoch FROM pings
+               WHERE device = ?
+               AND pings.epoch >= ?
+               AND pings.epoch < ?;"
+               device
+               startEpoch
+               endEpoch)))
 
-(defn ping-insert
+(defn get-record-by-time
+  "As get-by-time, but returns as a vector instead with the key as record"
+  [device startEpoch endEpoch]
+  [device (get-by-time device startEpoch endEpoch)])
+
+(defn ping-insert!
   "Inserts a ping into the database. Returns a map with :success flag and :message string"
   [device epoch]
   (log/trace "ping-insert:" device epoch)
@@ -57,3 +63,11 @@
         {:success false :message "Failed to insert key into database"}))
     )
   )
+
+(defn clear-data!
+  "Clears all data from the database table."
+  []
+  (try (jdb/delete! db :pings ["idpings >= 0"])
+       {:status 200}
+       (catch Exception e {:status 500}) ;; This *should* always succeed
+       ))
