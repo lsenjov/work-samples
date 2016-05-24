@@ -12,7 +12,7 @@
 
 (defn trans-ping
   "Takes and stores a device-epoch record"
-  [device epoch]
+  [device ^String epoch]
   (log/trace "trans-ping:" device epoch)
   (if-let [t (h/parse-int epoch)]
     (let [status (persist/ping-insert! device epoch)]
@@ -28,11 +28,13 @@
 (defn get-pings
   "Gets pings by device in a time range"
   [device ^Integer start ^Integer end]
+  (log/trace "get-pings:" device start end)
   {device (persist/get-by-time device start end)})
 
 (defn get-records
   "Gets pings, assuming start and finish are both integers"
   [device ^Integer start ^Integer end]
+  (log/trace device start end)
   (if (= device "all")
     (h/pretty-print-map
       ",\n"
@@ -48,12 +50,14 @@
 
 (defn trans-get-pings
   "Gets all the pings from a single device in a time period"
-  ([device date] ;; This form MUST be YYYY-MM-DD, not epoch time
+  ([device ^String date] ;; This form MUST be YYYY-MM-DD, not epoch time
+   (log/trace "trans-get-pings:" device date)
    (if-let [start (h/date-to-epoch date)] ;; Must make sure this is good first
      (get-records device start (+ start secondsInDay))
      {:status 400 :message "Invalid date."}
      ))
-  ([device start end]
+  ([device ^String start ^String end]
+   (log/trace "trans-get-pings:" device start end)
    (let [sEpoch (h/to-epoch start)
          eEpoch (h/to-epoch end)]
      (if (and sEpoch eEpoch)
@@ -66,6 +70,7 @@
 (defn trans-devices
   "Gets a list of all devices"
   []
+  (log/trace "trans-devices.")
   (h/pretty-print-array
     ",\n"
     (map (fn [s] (str \" s \"))
@@ -74,4 +79,5 @@
 (defn trans-clear
   "Clears all data from the table"
   []
+  (log/trace "trans-clear")
   (persist/clear-data!))

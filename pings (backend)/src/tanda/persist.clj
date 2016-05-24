@@ -19,21 +19,25 @@
 (defn get-all
   "Gets ALL timestamps"
   []
+  (log/trace "get-all.")
   (query "SELECT pings.device, pings.epoch FROM pings;"))
 
 (defn get-unique-devices
   "Gets a list of all devices, sorted alphabetically"
   []
+  (log/trace "get-unique-devices.")
   (sort (map :device (query "SELECT DISTINCT pings.device FROM pings;"))))
 
 (defn get-by-device
   "Gets all timestamps from the device"
   [device]
+  (log/trace "get-by-device:" device)
   (mapv :epoch (query "SELECT pings.epoch FROM pings WHERE device = ?;" device)))
 
 (defn get-by-time
   "Gets all timestamps from a device between start inclusive and end exclusive"
   [device startEpoch endEpoch]
+  (log/trace "get-by-time:" device startEpoch endEpoch)
   (mapv :epoch
         (query "SELECT pings.epoch FROM pings
                WHERE device = ?
@@ -45,13 +49,14 @@
 
 (defn get-record-by-time
   "As get-by-time, but returns as a vector instead with the key as record"
-  [device startEpoch endEpoch]
+  [device ^Integer startEpoch ^Integer endEpoch]
+  (log/trace "get-record-by-time:" device startEpoch endEpoch)
   [device (get-by-time device startEpoch endEpoch)])
 
 (defn ping-insert!
   "Inserts a ping into the database. Returns a map with :success flag and :message string"
-  [device epoch]
-  (log/trace "ping-insert:" device epoch)
+  [device ^Integer epoch]
+  (log/trace "ping-insert!:" device epoch)
   (try
     (let [result (jdb/insert! db :pings {:device device :epoch epoch})]
       (log/trace "ping-insert, result: " result)
@@ -67,6 +72,7 @@
 (defn clear-data!
   "Clears all data from the database table."
   []
+  (log/trace "clear-data!.")
   (try (jdb/delete! db :pings ["idpings >= 0"])
        {:status 200}
        (catch Exception e {:status 500}) ;; This *should* always succeed
