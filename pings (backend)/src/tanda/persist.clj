@@ -13,13 +13,18 @@
    :user "pingUser"})
 
 (def db
-  (let [d (edn/read-string (slurp "dbConfig.edn"))]
-    (if (and (:subprotocol d)
-             (:subname d)
-             (:user d))
-      (do
-        (log/info "Loading from dbConfig.edn")
-        d)
+  (try 
+    (let [d (edn/read-string (slurp "dbConfig.edn"))]
+      (if (and (:subprotocol d)
+               (:subname d)
+               (:user d))
+        (do
+          (log/info "Loading from dbConfig.edn")
+          d)
+        (do
+          (log/info "dbConfig.edn not complete, reverting to defaults")
+          default-db)))
+    (catch java.io.FileNotFoundException e
       (do
         (log/info "Could not find dbConfig.edn, reverting to defaults")
         default-db))))
