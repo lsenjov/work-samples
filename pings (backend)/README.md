@@ -1,3 +1,26 @@
+# Running the code
+
+This code required two items to run:
+1. Java
+2. A database with a table `pings` with columns VARCHAR `device` and INT `epoch`
+At this moment it only runs on mySql, but this can be easily changed with a couple added dependencies.
+
+Compiling requires leiningen. Use `lein ring server-headless` to run the local code or `lein ring uberjar` for a deployable jar file. Also has `lein ring uberwar` if required.
+
+## Reasoning
+
+I used Clojure and mySql for this project. Clojure works well with few state changes, and the only state changes are handled by the database.
+
+Any database would do for this and can be swapped out easily, but I chose mySql as it is a common database and has decent performance.
+
+Logging only shows INFO to stdout, but TRACE to logs/log.out. This can be changed before compile with src/log4j.properties. All calls are logged to help with any debugging, and I don't believe device pings need anonymising.
+
+### Performance
+
+Searches are all performed from the database. Indexed tables should deliver excellent performance on searches.
+
+There is a race condition of a clear_data call in the middle of getting data about all devices. This should give weird results but not invalid ones, but assumedly this call would not be in production code.
+
 # Pings
 
 This task is a challenge for back end engineers and developers.
