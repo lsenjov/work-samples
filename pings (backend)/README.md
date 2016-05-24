@@ -1,8 +1,8 @@
 # Running the code
 
-This code required two items to run:
-1. Java
-2. A database with a table `pings` with columns VARCHAR `device` and INT `epoch`
+This code required two items to run:  
+1. Java  
+2. A database with a table `pings` with columns VARCHAR `device` and INT `epoch`  
 At this moment it only runs on mySql, but this can be easily changed with a couple added dependencies.
 
 Compiling requires leiningen. Use `lein ring server-headless` to run the local code or `lein ring uberjar` for a deployable jar file. Also has `lein ring uberwar` if required.
