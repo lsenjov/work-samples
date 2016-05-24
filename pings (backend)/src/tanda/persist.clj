@@ -2,13 +2,27 @@
   (:require
     [clojure.tools.logging :as log]
     [clojure.java.jdbc :as jdb]
+    [clojure.edn :as edn]
     )
   (:gen-class)
   )
 
-(def db {:subprotocol "mysql"
-         :subname "//127.0.0.1:3306/tanda_ping"
-         :user "pingUser"})
+(def default-db
+  {:subprotocol "mysql"
+   :subname "//127.0.0.1:3306/tanda_ping"
+   :user "pingUser"})
+
+(def db
+  (let [d (edn/read-string (slurp "dbConfig.edn"))]
+    (if (and (:subprotocol d)
+             (:subname d)
+             (:user d))
+      (do
+        (log/info "Loading from dbConfig.edn")
+        d)
+      (do
+        (log/info "Could not find dbConfig.edn, reverting to defaults")
+        default-db))))
 
 (defn- query
   "Performs the query against the defined database, and logs the query"
